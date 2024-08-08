@@ -3,7 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { useSelector, useDispatch } from 'react-redux'
-import { decrement, increment } from './redux/counterSlice'
+import { decrement, increment, changeName } from './redux/counterSlice'
+import UserList from './UserList'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
   console.log(value)
   console.log(isAuthenticated)
   console.log(list[0][1])
+  const newName = "İnan"
 
   return (
       <div>
@@ -27,6 +29,11 @@ function App() {
           <button onClick={()=> dispatch(increment())}>Arttır</button>
           <button onClick={()=> dispatch(decrement())}>Azalt</button>
         </div>
+        <div>
+          <p>{name}</p>
+          <button onClick={()=> dispatch(changeName("inan"))}>Değiştir ismi</button>
+        </div>
+        <UserList/>
       </div>
   )
 }
