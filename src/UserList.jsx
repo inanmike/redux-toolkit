@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllUsers } from './redux/userSlice';
+import User from './User';
 
 function UserList() {
 
@@ -14,13 +15,11 @@ function UserList() {
 
   return (
     <div>
-        <ul>
-        {users.map((user) => (
-          <li key={user.id}>
-            {user.name} - {user.email}
-          </li>
-        ))}
-      </ul>
+        {
+          users && users.map((user) => (
+          <User key={user.id} user = {user}/>
+          ))
+        }
     </div>
   )
 }
